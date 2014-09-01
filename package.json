@@ -26,7 +26,10 @@
     "validate.io",
     "validate",
     "validation",
-    "validator"
+    "validator",
+    "array",
+    "string",
+    "length"
   ],
   "bugs": {
     "url": "https://github.com/validate-io/length/issues"
