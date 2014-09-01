@@ -1,4 +1,4 @@
-length
+Length
 ===
 [![NPM version][npm-image]][npm-url] [![Build Status][travis-image]][travis-url] [![Coverage Status][coveralls-image]][coveralls-url] [![Dependencies][dependencies-image]][dependencies-url]
 
@@ -19,15 +19,48 @@ For use in the browser, use [browserify](https://github.com/substack/node-browse
 To use the module,
 
 ``` javascript
-var lib = require( 'validate.io-length' );
+var isLength = require( 'validate.io-length' );
+
+console.log( isLength( 'beep', 4 ) );
+// Returns true
+
+console.log( isLength( 'foo', 2, 10 ) );
+// Returns true
+
+console.log( isLength( [1,2,3], 3 ) );
+// Returns true
+
+console.log( isLength( [4,5,6], 0, 5 ) );
+// Returns true
+
+console.log( isLength( 'baz', 4 ) );
+// Returns false
+
+console.log( isLength( [1,2], 10, 12 ) );
+// Returns false
 ```
+
+where 
+
+``` javascript
+isLength( value, length );
+isLength( value, lower, upper );
+```
+
+The arguments are as follows:
+
+* 	`value` is the value to be validated
+* 	`length` is a specific length that the `value` must be
+* 	`lower` is a lower bound length (inclusive)
+* 	`upper` is an upper bound length (inclusive)
+
+
+## Notes
+
+This method applies __only__ to `string` and `array` value types. For any other types, the method returns `false`.
 
 
 ## Examples
-
-``` javascript
-var lib = require( 'validate.io-length' );
-```
 
 To run the example code from the top-level application directory,
 
