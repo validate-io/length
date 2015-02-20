@@ -30,7 +30,10 @@
     "array",
     "string",
     "function",
-    "length"
+    "length",
+    "is",
+    "type",
+    "check"
   ],
   "bugs": {
     "url": "https://github.com/validate-io/length/issues"
