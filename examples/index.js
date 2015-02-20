@@ -1,19 +1,24 @@
-var isLength = require( './../lib' );
+'use strict';
 
-console.log( isLength( 'beep', 4 ) );
-// Returns true
+var hasLength = require( './../lib' );
 
-console.log( isLength( 'foo', 2, 10 ) );
-// Returns true
+console.log( hasLength( 'beep', 4 ) );
+// returns true
 
-console.log( isLength( [1,2,3], 3 ) );
-// Returns true
+console.log( hasLength( 'foo', 2, 10 ) );
+// returns true
 
-console.log( isLength( [4,5,6], 0, 5 ) );
-// Returns true
+console.log( hasLength( [1,2,3], 3 ) );
+// returns true
 
-console.log( isLength( 'baz', 4 ) );
-// Returns false
+console.log( hasLength( [4,5,6], 0, 5 ) );
+// returns true
 
-console.log( isLength( [1,2], 10, 12 ) );
-// Returns false
+console.log( hasLength( function(a,b,c){}, 3 ) );
+// returns true
+
+console.log( hasLength( 'baz', 4 ) );
+// returns false
+
+console.log( hasLength( [1,2], 10, 12 ) );
+// returns false

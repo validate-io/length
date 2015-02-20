@@ -1,7 +1,7 @@
 {
   "name": "validate.io-length",
   "version": "1.0.0",
-  "description": "Validates if a value is specific length.",
+  "description": "Validates if a value is a specific length.",
   "author": {
     "name": "Athan Reines",
     "email": "kgryte@gmail.com"
@@ -29,17 +29,24 @@
     "validator",
     "array",
     "string",
+    "function",
     "length"
   ],
   "bugs": {
     "url": "https://github.com/validate-io/length/issues"
   },
-  "dependencies": {},
+  "dependencies": {
+    "validate.io-array": "^1.0.1",
+    "validate.io-integer": "^1.0.3",
+    "validate.io-string": "^1.0.1"
+  },
   "devDependencies": {
     "chai": "1.x.x",
     "mocha": "1.x.x",
     "coveralls": "^2.11.1",
-    "istanbul": "^0.3.0"
+    "istanbul": "^0.3.0",
+    "jshint": "^2.5.10",
+    "jshint-stylish": "^1.0.0"
   },
   "licenses": [
     {

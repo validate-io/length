@@ -2,7 +2,7 @@ Length
 ===
 [![NPM version][npm-image]][npm-url] [![Build Status][travis-image]][travis-url] [![Coverage Status][coveralls-image]][coveralls-url] [![Dependencies][dependencies-image]][dependencies-url]
 
-> Validates if a value is specific length.
+> Validates if a value is a specific length.
 
 
 ## Installation
@@ -16,51 +16,57 @@ For use in the browser, use [browserify](https://github.com/substack/node-browse
 
 ## Usage
 
-To use the module,
-
 ``` javascript
-var isLength = require( 'validate.io-length' );
-
-console.log( isLength( 'beep', 4 ) );
-// Returns true
-
-console.log( isLength( 'foo', 2, 10 ) );
-// Returns true
-
-console.log( isLength( [1,2,3], 3 ) );
-// Returns true
-
-console.log( isLength( [4,5,6], 0, 5 ) );
-// Returns true
-
-console.log( isLength( 'baz', 4 ) );
-// Returns false
-
-console.log( isLength( [1,2], 10, 12 ) );
-// Returns false
+var hasLength = require( 'validate.io-length' );
 ```
 
-where 
+#### hasLength( value, length | lower[, upper] )
+
+Validates if a `value` has either a specific `length` or has a `length` between a `lower` bound (inclusive) and an `upper` bound (inclusive).
 
 ``` javascript
-isLength( value, length );
-isLength( value, lower, upper );
+var value = [ 1, 2, 3 ],
+	len = 3,
+	lower = 1,
+	upper = 7;
+
+var bool = hasLength( value, len );
+// returns true
+
+bool = hasLength( value, lower, upper );
+// returns true
 ```
-
-The arguments are as follows:
-
-* 	`value` is the value to be validated
-* 	`length` is a specific length that the `value` must be
-* 	`lower` is a lower bound length (inclusive)
-* 	`upper` is an upper bound length (inclusive)
 
 
 ## Notes
 
-This method applies __only__ to `string` and `array` value types. For any other types, the method returns `false`.
+This method applies __only__ to `string`, `array`, and `function` value types. For any other types, the method returns `false`.
 
 
 ## Examples
+
+``` javascript
+console.log( hasLength( 'beep', 4 ) );
+// returns true
+
+console.log( hasLength( 'foo', 2, 10 ) );
+// returns true
+
+console.log( hasLength( [1,2,3], 3 ) );
+// returns true
+
+console.log( hasLength( [4,5,6], 0, 5 ) );
+// returns true
+
+console.log( hasLength( function(a,b,c){}, 3 ) );
+// returns true
+
+console.log( hasLength( 'baz', 4 ) );
+// returns false
+
+console.log( hasLength( [1,2], 10, 12 ) );
+// returns false
+```
 
 To run the example code from the top-level application directory,
 
@@ -73,7 +79,7 @@ $ node ./examples/index.js
 
 ### Unit
 
-Unit tests use the [Mocha](http://visionmedia.github.io/mocha) test framework with [Chai](http://chaijs.com) assertions. To run the tests, execute the following command in the top-level application directory:
+Unit tests use the [Mocha](http://mochajs.org) test framework with [Chai](http://chaijs.com) assertions. To run the tests, execute the following command in the top-level application directory:
 
 ``` bash
 $ make test
@@ -93,16 +99,16 @@ $ make test-cov
 Istanbul creates a `./reports/coverage` directory. To access an HTML version of the report,
 
 ``` bash
-$ open reports/coverage/lcov-report/index.html
+$ make view-cov
 ```
 
 
+---
 ## License
 
 [MIT license](http://opensource.org/licenses/MIT). 
 
 
----
 ## Copyright
 
 Copyright &copy; 2014. Athan Reines.
